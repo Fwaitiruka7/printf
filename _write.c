@@ -1,14 +1,14 @@
 #include "main.h"
-#include <unstd.h>
+#include <unistd.h>
+#define BUFSIZE 1024
 
 /**
- * write- prints all characters s to stdout
+ * _write- prints all characters s to stdout
  * @s: the character to print out
  * Return: on success 1 and -1 in case of an error
  */
 
-int write(char *s)
+int _write(char s)
 {
-	char buffer[1024];
 	return (write(1, &s, 1));
 }

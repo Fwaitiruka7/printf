@@ -1,6 +1,7 @@
 #ifndef MAIN_H
 #define MAIN_H
+#include <unistd.h>
 
 int _printf(const char *format, ...);
-int write(char *s);
+int _write(char);
 #endif
