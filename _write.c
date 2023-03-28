@@ -1,6 +1,7 @@
 #include "main.h"
 #include <unistd.h>
 #define BUFSIZE 1024
+#define TABLESIZE BUFSIZE
 
 /**
  * _write- prints all characters s to stdout
