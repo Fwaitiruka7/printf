@@ -1,5 +1,7 @@
 #include "main.h"
 #include <unstd.h>
+#define BUFSIZE 1024
+#define char BUFSIZE
 
 /**
  * write- prints all characters s to stdout
