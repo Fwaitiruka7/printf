@@ -33,8 +33,7 @@ int _printf(const char *format, ...)
 					while (*s)
 					{
 						putchar(*s);
-						no++;
-						s++;
+						no++, s++;
 					}
 					break;
 				case '%':
@@ -48,8 +47,7 @@ int _printf(const char *format, ...)
 		{
 			putchar(*format);
 			no++;
-		}
-		format++;
+		} format++;
 	}
 	va_end(ap);
 	return (0);
