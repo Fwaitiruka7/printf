@@ -1,7 +1,5 @@
 #include "main.h"
 #include <unstd.h>
-#define BUFSIZE 1024
-#define char BUFSIZE
 
 /**
  * write- prints all characters s to stdout
@@ -11,5 +9,6 @@
 
 int write(char *s)
 {
+	char buffer[1024];
 	return (write(1, &s, 1));
 }
