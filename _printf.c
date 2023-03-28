@@ -3,15 +3,21 @@
 #include <stddef.h>
 #include <stdio.h>
 
+/**
+ * _printf - processes stdout
+ * @format: c for char, s for pointer
+ * Return: 0 if successful
+ */
+
 int _printf(const char *format, ...)
 {
-	va_list (ap);
+	va_list(ap);
 	int no = 0;
 	char *s, c;
 
 	va_start(ap, format);
 
-	for(; no != '\0'; no++)
+	for (; no != '\0'; no++)
 	{
 		if (*format == '%')
 		{
@@ -19,7 +25,7 @@ int _printf(const char *format, ...)
 			switch (*format)
 			{
 				case 'c':
-					c =(char) va_arg(ap, int);
+					c = (char) va_arg(ap, int);
 					putchar(c);
 					break;
 				case 's':
@@ -34,16 +40,13 @@ int _printf(const char *format, ...)
 				default:
 					break;
 			}
-			
 		}
-		
 		else
 		{
 			putchar(*format);
 		}
 		format++;
 	}
-	
 	va_end(ap);
 	return (0);
 }
