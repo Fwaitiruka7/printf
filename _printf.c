@@ -2,53 +2,51 @@
 #include <stdarg.h>
 #include <stddef.h>
 #include <stdio.h>
+#include <string.h>
 
 /**
  * _printf - processes stdout
  * @format: c for char, s for pointer
- * Return: 0 if successful
+ * Return: count
  */
 
 int _printf(const char *format, ...)
 {
-	va_list(ap);
-	int no = 0;
-	char *s, c;
+	va_list (ap);
+	int list;
 
-	va_start(ap, format);
+	va_start (ap, format);
 
-	while (*format)
+	while (*format != '\0')
 	{
 		if (*format == '%')
 		{
 			format++;
-			switch (*format)
+			if (*format == 'c')
 			{
-				case 'c':
-					c = (char) va_arg(ap, int);
-					putchar(c);
-					break;
-				case 's':
-					s = va_arg(ap, char *);
-					while (*s)
-					{
-						putchar(*s);
-						no++, s++;
-					}
-					break;
-				case '%':
-					putchar('%');
-					no++;
-				default:
-					break;
+				char c = (int) va_arg(ap, int);
+				putchar(c);
+				list++;
+			}
+			else if (*format == 's')
+			{
+				char *s = va_arg(ap, char *);
+				fputs(s, stdout);
+				list += strlen(s);
+			}
+			else if (*format == '%')
+			{
+				putchar('%');
+				list++;
 			}
 		}
 		else
 		{
 			putchar(*format);
-			no++;
-		} format++;
+			list++;
+		}
+		format++;
 	}
-	va_end(ap);
-	return (0);
+	va_end (ap);
+	return (list);
 }
