@@ -12,10 +12,10 @@
 
 int _printf(const char *format, ...)
 {
-	va_list (ap);
+	va_list ap;
 	int list;
 
-	va_start (ap, format);
+	va_start(ap, format);
 
 	while (*format != '\0')
 	{
@@ -25,12 +25,14 @@ int _printf(const char *format, ...)
 			if (*format == 'c')
 			{
 				char c = (int) va_arg(ap, int);
+
 				putchar(c);
 				list++;
 			}
 			else if (*format == 's')
 			{
 				char *s = va_arg(ap, char *);
+
 				fputs(s, stdout);
 				list += strlen(s);
 			}
@@ -47,6 +49,6 @@ int _printf(const char *format, ...)
 		}
 		format++;
 	}
-	va_end (ap);
+	va_end(ap);
 	return (list);
 }
