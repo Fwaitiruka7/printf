@@ -36,6 +36,12 @@ int _printf(const char *format, ...)
 				fputs(s, stdout);
 				list += strlen(s);
 			}
+			else if (*format == 'd' || *format == 'i')
+			{
+				int int_vl = va_arg(ap, int);
+				printf("%d", int_vl);
+				list += snprintf(NULL, 0, "%d", int_vl);
+			}
 			else if (*format == '%')
 			{
 				putchar('%');
